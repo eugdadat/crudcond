@@ -7,7 +7,7 @@ function Menu({onNavigate, onCreate}){
             <h3 className='menu-title'>Agenda</h3>
             <ul className='menu-list'>
                 <li>
-                    <button className='menu-button' onClick={() => onCreate}>Cadastrar Contato</button>
+                    <button className='menu-button' onClick={() => onCreate()}>Cadastrar Contato</button>
                 </li>
                 <li>
                     <a href="#" onClick={(e) => {
@@ -18,8 +18,14 @@ function Menu({onNavigate, onCreate}){
                 <li>
                     <a href="#" onClick={(e) => {
                         e.preventDefault();
-                        onNavigate('welcome');}} 
+                        onNavigate('Welcome');}} 
                     >Página Inicial</a>
+                </li>
+                <li>
+                    <a href="#" onClick={(e) => {
+                        e.preventDefault();
+                        onNavigate('logout');}} 
+                    >Sair</a>
                 </li>
             </ul>
         </nav>

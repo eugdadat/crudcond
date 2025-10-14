@@ -28,11 +28,45 @@ const handleLogin = (userName, password) => {
   }
 }
 
-const handleSaveContact = (contact) => {}
-const handleDeleteContact = (id) => {}
-const startEdit = (contact) => {}
-const showCraetForm = () => {}
-const handleNavigate = (screen) => {}
+const handleSaveContact = (contact) => {
+  if(contact.id){ // se o contato ja tem id, então é uma atualização
+    setContacts(contacts.map(c => c.id === contact.id ? contact : c));
+    alert('Contato alterado com sucesso')
+  }
+  else{
+    // cadastra-se um contato novo
+    contact.id = Date.now();
+    setContacts([...contacts, contact])
+    alert('Contato cadastrado com sucesso')
+  }
+  setActiveScreen('list');
+  setContactToEdit(null);
+}
+
+const handleDeleteContact = (id) => {
+  setContacts(contacts.filter(c => c.id !== id));
+  alert('Contato removido com sucesso')
+}
+
+const startEdit = (contact) => {
+  setContactToEdit(contact)
+  setActiveScreen('form')
+}
+
+const showCraetForm = () => {
+  setContactToEdit(null)
+  setActiveScreen('form')
+
+}
+
+const handleNavigate = (screen) => {
+  if(screen === 'logout'){
+    setIsLoggedIn(false)
+  }
+  else{
+    setActiveScreen(screen)
+  }
+}
 
 
 if(!isLoggedIn){
@@ -40,7 +74,7 @@ if(!isLoggedIn){
 }
 
 return(
-  <div>
+  <div className="app-container">
     <Menu onNavigate={handleNavigate} onCreate={showCraetForm}/>
     <main className="content">
       {activeScreen === 'Welcome' && <Welcome/>}
