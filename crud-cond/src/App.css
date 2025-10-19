@@ -1,7 +1,7 @@
 /* Importa uma fonte moderna do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* Define variáveis de cor para fácil manutenção */
+/* Define variáveis de cor */
 :root {
   --primary-color: #007bff;
   --primary-hover-color: #0056b3;
@@ -13,7 +13,7 @@
   --success-color: #28a745;
   --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
+/*vdvds
 /* Reseta estilos básicos e aplica a fonte global */
 body {
   margin: 0;
